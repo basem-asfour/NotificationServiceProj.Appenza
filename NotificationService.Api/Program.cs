@@ -12,7 +12,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
 builder.Services.AddTransient<EmailProvider>();
 builder.Services.AddTransient<SMSProvider>();
 builder.Services.AddTransient<WhatsAppProvider>();
@@ -23,6 +22,8 @@ builder.Services.AddSingleton<INotificationProviderFactory, NotificationProvider
 builder.Services.AddSingleton<IRabbitMQService, RabbitMQService>();
 builder.Services.AddHostedService<SmsConsumer>();
 builder.Services.AddSignalR();
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -17,10 +17,24 @@ namespace NotificationService.BLL.Provider
             _rabbitMQService = rabbitMQService;
         }
 
+        public List<ISendable> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ISendable GetSingle(long id)
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task SendAsync(ISendable request)
         {
             _rabbitMQService.PublishMessage("sms_queue", request);
+        }
+
+        public Task Update(ISendable request)
+        {
+            throw new NotImplementedException();
         }
     }
 }
