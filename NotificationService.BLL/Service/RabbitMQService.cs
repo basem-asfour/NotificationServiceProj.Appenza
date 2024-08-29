@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using NotificationService.Web.Interfaces;
+using NotificationService.Interface;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;

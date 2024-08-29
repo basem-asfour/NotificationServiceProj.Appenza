@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using NotificationService.BLL.Consumer;
+using NotificationService.BLL.Provider;
+using NotificationService.Interface;
 using NotificationService.Web.Data;
-using NotificationService.Web.Interfaces;
 using NotificationService.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,7 +19,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddSingleton<IRabbitMQService, RabbitMQService>();
-builder.Services.AddScoped<INotificationService, NotificationService.Web.Services.NotificationService>();
+builder.Services.AddScoped<INotificationProvider, NotificationProvider>();
+builder.Services.AddScoped<INotificationProvider, SMSProvider>();
+builder.Services.AddScoped<INotificationProvider, EmailProvider>();
+builder.Services.AddScoped<INotificationProvider, WhatsAppProvider>();
 builder.Services.AddHostedService<SmsConsumer>();
 builder.Services.AddSignalR();
 

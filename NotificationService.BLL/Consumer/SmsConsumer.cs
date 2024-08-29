@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json;
-using NotificationService.Web.Interfaces;
-using NotificationService.Web.Models;
+﻿using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
+using NotificationService.Interface;
+using NotificationService.Model.NotificationModels;
 
-namespace NotificationService.Web.Services
+namespace NotificationService.BLL.Consumer
 {
     public class SmsConsumer : BackgroundService
     {

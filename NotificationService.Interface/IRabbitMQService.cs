@@ -1,4 +1,4 @@
-﻿namespace NotificationService.Web.Interfaces
+﻿namespace NotificationService.Interface
 {
     public interface IRabbitMQService
     {
